@@ -36,13 +36,10 @@ spec:
       volumes: 
         - name: vpro-db-data
           awsElasticBlockStore:
-            volumeID: vol-045e4aae123596d71
+            volumeID: vol-0585f0a8b03ab900e
             fsType: ext4
 
       initContainers:
         - name: busybox
           image: busybox:latest
           args: ["rm", "-rf", "/var/lib/mysql/lost+found"]
-          volumeMounts:
-            - name: vpro-db-data
-              mountPath: /var/lib/mysql
